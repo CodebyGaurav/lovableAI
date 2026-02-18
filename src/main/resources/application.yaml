@@ -1,0 +1,4 @@
+spring:
+  application:
+    name: lovable-ai
+    description: this is lovable-ai application
