@@ -8,10 +8,13 @@ import lombok.experimental.FieldDefaults;
 import java.time.Instant;
 
 @Entity
-@Table(name = "project_member")
+@Table(name = "project_members")
 @Getter
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class ProjectMember {
 
     @EmbeddedId
@@ -26,11 +29,13 @@ public class ProjectMember {
     User user;
 
     @Enumerated(EnumType.STRING)
+            @Column(nullable = false)
     ProjectRole projectRole;
 
-    @ManyToOne
-    @JoinColumn(name = "invited_by")
-    User invitedBy;
+//    @ManyToOne
+//    @JoinColumn(name = "invited_by")
+//    User invitedBy;
 
     Instant invitedAt;
+    Instant acceptedAt;
 }

@@ -8,8 +8,8 @@ import lombok.experimental.FieldDefaults;
 import java.time.Instant;
 
 
-@Entity
-@Table(name = "subscription")
+//@Entity
+//@Table(name = "subscription")
 @Getter
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)

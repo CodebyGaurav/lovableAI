@@ -4,7 +4,6 @@ package com.codebygaurav.lovable_ai.controller;
 import com.codebygaurav.lovable_ai.dto.member.InviteMemberRequest;
 import com.codebygaurav.lovable_ai.dto.member.MemberResponse;
 import com.codebygaurav.lovable_ai.dto.member.UpdateMemberRoleRequest;
-import com.codebygaurav.lovable_ai.entity.ProjectMember;
 import com.codebygaurav.lovable_ai.service.ProjectMemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -49,11 +48,12 @@ public class ProjectMemberController {
     }
 
     @DeleteMapping("/{memberId}")
-    public ResponseEntity<MemberResponse> deleteProjectMember(
+    public ResponseEntity<Void> removeProjectMember(
             @PathVariable Long projectId,
             @PathVariable Long memberId
     ){
         Long userId = 1L;
-        return ResponseEntity.ok(projectMemberService.deleteProjectMember(projectId,memberId,userId));
+        projectMemberService.removeProjectMember(projectId,memberId,userId);
+        return ResponseEntity.noContent().build();
     }
 }

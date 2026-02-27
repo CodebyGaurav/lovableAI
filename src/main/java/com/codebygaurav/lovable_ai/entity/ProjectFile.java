@@ -8,8 +8,8 @@ import lombok.experimental.FieldDefaults;
 
 import java.time.Instant;
 
-@Entity
-@Table(name = "project_file")
+//@Entity
+//@Table(name = "project_file")
 @Getter
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
