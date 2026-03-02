@@ -1,7 +1,7 @@
 package com.codebygaurav.lovable_ai.mapper;
 
 import com.codebygaurav.lovable_ai.dto.project.ProjectResponse;
-import com.codebygaurav.lovable_ai.dto.project.ProjectSummayResponse;
+import com.codebygaurav.lovable_ai.dto.project.ProjectSummaryResponse;
 import com.codebygaurav.lovable_ai.entity.Project;
 import org.mapstruct.Mapper;
 
@@ -11,7 +11,7 @@ import java.util.List;
 public interface ProjectMapper {
 
     ProjectResponse toProjectResponse(Project project);
-    ProjectSummayResponse toProjectSummayResponse(Project project);
+    ProjectSummaryResponse toProjectSummaryResponse(Project project);
 
-    List<ProjectSummayResponse> toListOfProjectSummayResponse(List<Project> projects);
+    List<ProjectSummaryResponse> toListOfProjectSummaryResponse(List<Project> projects);
 }

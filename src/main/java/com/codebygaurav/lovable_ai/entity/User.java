@@ -22,12 +22,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @Column(nullable = false, unique = true)
-    String email;
-
-    String passwordHash;
+    String username;
+    String password;
     String name;
-    String avatarUrl;
 
     @CreationTimestamp
     Instant createdAt;

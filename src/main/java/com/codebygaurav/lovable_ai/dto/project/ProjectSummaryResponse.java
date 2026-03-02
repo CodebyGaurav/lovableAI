@@ -2,7 +2,7 @@ package com.codebygaurav.lovable_ai.dto.project;
 
 import java.time.Instant;
 
-public record ProjectSummayResponse(
+public record ProjectSummaryResponse(
         Long id,
         String name,
         Instant createdAt,
