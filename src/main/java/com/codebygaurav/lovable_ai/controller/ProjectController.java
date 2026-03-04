@@ -3,6 +3,7 @@ package com.codebygaurav.lovable_ai.controller;
 import com.codebygaurav.lovable_ai.dto.project.ProjectRequest;
 import com.codebygaurav.lovable_ai.dto.project.ProjectResponse;
 import com.codebygaurav.lovable_ai.dto.project.ProjectSummaryResponse;
+import com.codebygaurav.lovable_ai.security.AuthUtil;
 import com.codebygaurav.lovable_ai.service.ProjectService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -21,34 +22,28 @@ public class ProjectController {
 
     @GetMapping
     public ResponseEntity<List<ProjectSummaryResponse>> getMyProjects(){
-        Long userId = 1L;
-        return ResponseEntity.ok(projectService.getUserProjects(userId));
+        return ResponseEntity.ok(projectService.getUserProjects());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ProjectResponse> getProjectById(@PathVariable Long id){
-        Long userId = 1L;
-
-        return ResponseEntity.ok(projectService.getUserProjectById(id,userId));
+        return ResponseEntity.ok(projectService.getUserProjectById(id));
     }
 
     @PostMapping
     public ResponseEntity<ProjectResponse> createProject(@RequestBody @Valid ProjectRequest projectRequest){
-        Long userId = 1L;
-        return ResponseEntity.status(HttpStatus.CREATED).body(projectService.createProject(projectRequest,userId));
+        return ResponseEntity.status(HttpStatus.CREATED).body(projectService.createProject(projectRequest));
     }
 
     @PatchMapping("{id}")
     public ResponseEntity<ProjectResponse> updateProject(@PathVariable Long id, @RequestBody @Valid ProjectRequest request) {
-        Long userId = 1L;
-        return ResponseEntity.ok(projectService.updateProject(id, request, userId));
+        return ResponseEntity.ok(projectService.updateProject(id, request));
 
     }
 
     @DeleteMapping("{id}")
     public ResponseEntity<Void> deleteProject(@PathVariable Long id){
-        Long userId = 1L;
-        projectService.softDelete(id, userId);
+        projectService.softDelete(id);
         return ResponseEntity.noContent().build();
 
     }
